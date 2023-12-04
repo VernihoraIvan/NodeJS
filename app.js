@@ -18,7 +18,7 @@ const corsOption = {
   origin: [
     "http://localhost:3000/",
     "https://jazzy-smakager-bb31ad.netlify.app/",
-    "https://vernihoraivan.github.io/MyPhonebook/",
+    "https://vernihoraivan.github.io",
   ],
 };
 
