@@ -16,7 +16,7 @@ app.use(logger(formatsLogger));
 const corsOption = {
   credentials: true,
   origin: [
-    "http://localhost:3000/",
+    "https://jazzy-smakager-bb31ad.netlify.app/users/current",
     "https://jazzy-smakager-bb31ad.netlify.app/",
     "https://vernihoraivan.github.io",
   ],
