@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const app = require("./app");
-const dbConnect = require("./db/mongoConect");
+const dbConnect = require("./db/mongoConnect");
 const { HOST } = process.env;
 
 async function startServer() {

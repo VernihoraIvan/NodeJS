@@ -12,7 +12,16 @@ const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 app.use(logger(formatsLogger));
-app.use(cors());
+// app.use(cors());
+const corsOption = {
+  credentials: true,
+  origin: [
+    "http://localhost:3000",
+    "https://jazzy-smakager-bb31ad.netlify.app/",
+  ],
+};
+
+app.use(cors(corsOption));
 app.use(express.json());
 app.use(express.static("public"));
 
