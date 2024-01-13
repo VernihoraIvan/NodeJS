@@ -49,7 +49,7 @@ const corsOptions = {
 app.use(express.json());
 app.use(express.static("public"));
 
-app.use("/contacts", contactsRouter);
+app.use("/contacts", cors(corsOptions), contactsRouter);
 app.use("/users", cors(corsOptions), authRouter);
 
 app.use((req, res) => {
