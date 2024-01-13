@@ -23,7 +23,10 @@ app.use(logger(formatsLogger));
 //   ],
 // };
 const corsOptions = {
-  origin: "http://localhost:3000/MyPhonebook",
+  origin: [
+    "http://localhost:3000/MyPhonebook",
+    "https://vernihoraivan.github.io/MyPhonebook/",
+  ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionsSuccessStatus: 204,
 };
