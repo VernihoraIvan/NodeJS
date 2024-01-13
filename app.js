@@ -22,16 +22,16 @@ app.use(logger(formatsLogger));
 //     "http:/localhost:3000/",
 //   ],
 // };
-const corsOptions = {
-  origin: [
-    "http://localhost:3000/MyPhonebook",
-    "https://vernihoraivan.github.io/MyPhonebook/",
-  ],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   origin: [
+//     "http://localhost:3000/",
+//     "https://vernihoraivan.github.io/MyPhonebook/",
+//   ],
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   optionsSuccessStatus: 204,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
@@ -41,13 +41,16 @@ app.use(cors(corsOptions));
 //   // );
 //   next();
 // });
-
+const corsOptions = {
+  origin: "https://vernihoraivan.github.io/MyPhonebook/",
+  optionsSuccessStatus: 200,
+};
 // app.use(cors(corsOption));
 app.use(express.json());
 app.use(express.static("public"));
 
 app.use("/contacts", contactsRouter);
-app.use("/users", authRouter);
+app.use("/users", cors(corsOptions), authRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
