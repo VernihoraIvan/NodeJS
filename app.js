@@ -12,7 +12,7 @@ const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 app.use(logger(formatsLogger));
-app.use(cors());
+// app.use(cors());
 // const corsOption = {
 //   credentials: true,
 //   origin: [
@@ -22,15 +22,22 @@ app.use(cors());
 //     "http:/localhost:3000/",
 //   ],
 // };
+const corsOptions = {
+  origin: "http://localhost:3000/MyPhonebook",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  optionsSuccessStatus: 204,
+};
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  // res.header(
-  //   "Access-Control-Allow-Headers",
-  //   "Origin, X-Requested-With, Content-Type, Accept"
-  // );
-  next();
-});
+app.use(cors(corsOptions));
+
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   // res.header(
+//   //   "Access-Control-Allow-Headers",
+//   //   "Origin, X-Requested-With, Content-Type, Accept"
+//   // );
+//   next();
+// });
 
 // app.use(cors(corsOption));
 app.use(express.json());
