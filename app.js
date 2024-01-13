@@ -43,6 +43,7 @@ app.use(logger(formatsLogger));
 // });
 const corsOptions = {
   origin: "https://vernihoraivan.github.io/MyPhonebook/",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionsSuccessStatus: 200,
 };
 // app.use(cors(corsOption));
